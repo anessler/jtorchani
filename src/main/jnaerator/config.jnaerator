@@ -1,0 +1,23 @@
+
+-limitComments
+
+-runtime JNA
+
+-direct
+
+-skipDeprecated
+
+-mode Jar
+
+-jar openmm.jar
+
+-package edu.uiowa.jopenmm
+
+-library OpenMM
+
+../include/OpenMMCWrapper.h
+
+-library OpenMMAmoeba
+
+../include/AmoebaOpenMMCWrapper.h
+

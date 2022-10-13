@@ -1,0 +1,18 @@
+
+-limitComments
+
+-runtime JNA
+
+-direct
+
+-skipDeprecated
+
+-mode Jar
+
+-jar torchani.jar
+
+-package edu.uiowa.torchani
+
+-library TorchANI
+
+../include/TorchANIWrapper.h
