@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>edu.uiowa.jopenmm</groupId>
-  <artifactId>jopenmm-fat</artifactId>
+  <groupId>edu.uiowa.jtorchani</groupId>
+  <artifactId>jtorchani-fat</artifactId>
   <version>7.5.0-v4</version>
   <packaging>jar</packaging>
-  <name>Java Wrappers for OpenMM</name>
-  <description>Java wrappers for the OpenMM API.</description>
+  <name>Java Wrappers for Torch ANI</name>
+  <description>Java wrappers for the Torch ANI API.</description>
   <dependencies>
     <dependency>
       <groupId>net.java.dev.jna</groupId>
@@ -100,10 +100,10 @@
     </plugins>
   </build>
   <distributionManagement>
-    <downloadUrl>https://github.com/mjschnie/jopenmm</downloadUrl>
+    <downloadUrl>https://github.com/anessler/jtorchani</downloadUrl>
     <site>
       <id>Website</id>
-      <name>Java OpenMM Wrapper Website Location</name>
+      <name>Java Torch ANI Wrapper Website Location</name>
       <url>${website.repo}</url>
     </site>
     <snapshotRepository>
