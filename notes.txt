@@ -1,0 +1,4 @@
+#Extracted JAR files in target build with "jar xf JAR" command.
+
+groovy -cp target/build TorchANITest.groovy
+

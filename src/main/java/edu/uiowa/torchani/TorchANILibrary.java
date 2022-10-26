@@ -4,7 +4,6 @@ import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
 import com.sun.jna.NativeLong;
-import java.nio.DoubleBuffer;
 
 /**
  * JNA Wrapper for library <b>TorchANI</b><br>
@@ -24,13 +23,9 @@ public class TorchANILibrary implements Library {
     Native.register(TorchANILibrary.class, TorchANILibrary.JNA_NATIVE_LIB);
   }
   /**
-   * Original signature : <code>double ctorch(const char*, long, const int[], double[], double[])
-   * </code>
+   * Original signature : <code>
+   * double ctorch(const char*, long, const int[], const double[], double[])</code>
    */
   public static native double ctorch(
-      String pathToTorch,
-      NativeLong n,
-      int species[],
-      DoubleBuffer coordinates,
-      DoubleBuffer gradient);
+      String pathToTorch, NativeLong n, int species[], double coordinates[], double gradient[]);
 }
