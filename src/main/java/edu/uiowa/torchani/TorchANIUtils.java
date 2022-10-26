@@ -17,15 +17,14 @@ public class TorchANIUtils {
   private static String JNA_LIBRARY_PATH = "";
   private static String TORCHANI_LIB_DIR = "";
 
-  public TorchANIUtils() {
-  }
+  public TorchANIUtils() {}
 
   public static synchronized void init() {
     if (!init) {
       init = true;
 
       try {
-        JarFile jarFile = jarForClass(TorchANILibrary.class, (JarFile)null);
+        JarFile jarFile = jarForClass(TorchANILibrary.class, (JarFile) null);
         String os;
         if (Platform.isMac()) {
           os = "darwin";
@@ -52,7 +51,6 @@ public class TorchANIUtils {
       } catch (Exception var5) {
         System.err.println(" Exception configuring TorchANI: " + var5.toString());
       }
-
     }
   }
 
@@ -82,10 +80,11 @@ public class TorchANIUtils {
     }
   }
 
-  private static void copyResourcesToDirectory(JarFile fromJar, String jarDir, String destDir) throws IOException {
+  private static void copyResourcesToDirectory(JarFile fromJar, String jarDir, String destDir)
+      throws IOException {
     Enumeration<JarEntry> entries = fromJar.entries();
 
-    while(true) {
+    while (true) {
       JarEntry entry;
       do {
         do {
@@ -93,9 +92,9 @@ public class TorchANIUtils {
             return;
           }
 
-          entry = (JarEntry)entries.nextElement();
-        } while(!entry.getName().startsWith(jarDir + "/"));
-      } while(entry.isDirectory());
+          entry = (JarEntry) entries.nextElement();
+        } while (!entry.getName().startsWith(jarDir + "/"));
+      } while (entry.isDirectory());
 
       File dest = new File(destDir + "/" + entry.getName().substring(jarDir.length() + 1));
       File parent = dest.getParentFile();
@@ -110,7 +109,7 @@ public class TorchANIUtils {
         byte[] buffer = new byte[8192];
 
         int s;
-        while((s = in.read(buffer)) > 0) {
+        while ((s = in.read(buffer)) > 0) {
           out.write(buffer, 0, s);
         }
       } catch (IOException var21) {
@@ -125,7 +124,6 @@ public class TorchANIUtils {
           out.close();
         } catch (IOException var19) {
         }
-
       }
     }
   }

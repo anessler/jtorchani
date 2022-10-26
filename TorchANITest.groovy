@@ -81,7 +81,6 @@ public class TorchANITest{
             for(int j = 0; j < 3; j++){
                 System.out.println(format(" %9.4f ", gradient[i * 3 + j]))
             }
-            System.out.println("\n");
         }
     }
 }

@@ -1,4 +1,10 @@
+# Build project
+mvn
+
+# JAR file can be found in target
+
 #Extracted JAR files in target build with "jar xf JAR" command.
+
 
 groovy -cp target/build TorchANITest.groovy
 
