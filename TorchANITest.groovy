@@ -40,7 +40,7 @@ import java.nio.DoubleBuffer
 import com.sun.jna.NativeLong
 import static java.lang.String.format
 import edu.uiowa.torchani.TorchANILibrary
-import static TorchANILibrary.ctorch
+import static edu.uiowa.torchani.TorchANILibrary.ctorch
 
 
 /**
@@ -68,10 +68,6 @@ public class TorchANITest{
         String pathToTorch = new String("/Users/anessler/Research/Software/ANI2xgradients.pt");
         double energy;
         double[] gradient = new double[numAtoms * 3];
-        DoubleBuffer coords = DoubleBuffer.allocate(numAtoms * 3);
-        coords.put(coordinates)
-        DoubleBuffer grad = DoubleBuffer.allocate(numAtoms * 3);
-        grad.put(gradient);
         System.out.println(" Structure has been loaded. \n Start Torch ANI.")
         NativeLong numA = new NativeLong(numAtoms);
         energy = ctorch(pathToTorch, numA, species, coordinates, gradient)
