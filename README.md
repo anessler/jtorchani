@@ -1,13 +1,16 @@
-# Java Wrappers for the OpenMM C API.
-Java Wrappers for the OpenMM C API automatically generated using Jnaerator.
+# Java Wrappers for the Torch ANI C API.
+Java Wrappers for the Torch ANI C API automatically generated using Jnaerator.
 
-Author: Michael J Schnieders
+Author: Aaron Nessler, Mitchell Hermon, Logan Martin
+Email: aaron-nessler@uiowa.edu
+
+Based on OpenMM C API by: Michael J Schnieders
 Email: michael-schnieders@uiowa.edu
 
 ## Introduction	
-This project contains Java Wrappers for the OpenMM C API, which are automatically generated using Jnaerator.
+This project contains Java Wrappers for the Torch ANI C API, which are automatically generated using Jnaerator.
 
-## Generation of the Java OpenMM Wrappers using Jnaerator
+## Generation of the Java Torch ANI Wrappers using Jnaerator
 
 The following Jnaerator command can then be used: 
 
@@ -25,17 +28,14 @@ where the contents of "config.jnaerator" are given by:
 
 	-mode Jar
 
-	-jar openmm.jar
+	-jar torchani.jar
 
-	-package edu.uiowa.jopenmm
+	-package edu.uiowa.jtorchani
 
-	-library OpenMM
-	../include/OpenMMCWrapper.h
+	-library TorchANI
+	../include/TorchANIWrapper.h
 
-	-library AmoebaOpenMM
-	../include/AmoebaOpenMMCWrapper.h
-
-The configuration file contains the various flags needed to set up generation of the wrappers as well as information about where to locate the OpenMM header files. Some Important flags include:
+The configuration file contains the various flags needed to set up generation of the wrappers as well as information about where to locate the Torch ANI header files. Some Important flags include:
 
 * -runtime sets the runtime library that will be used to generate the wrapper classes, in this case JNA
 
@@ -52,13 +52,10 @@ The configuration file contains the various flags needed to set up generation of
 For additional documentation on flag options available to edit the configuration file visit Jnaerator Wiki:
 https://github.com/nativelibs4java/JNAerator/wiki/Command-Line-Options-And-Environment-Variables
 
-## Using the JOpenMM Library
+## Using the JTorchANI Library
 
-To use the Java OpenMM Wrappers, please first initialize the library using the OpenMMUtils class:
+To use the Java Torch ANI Wrappers, please first initialize the library using the TorchANIUtils class:
 	
-      OpenMMUtils.init();
+      TorchANIUtils.init();
 
-This will extract the OpenMM binary libraries (for Cuda 10.1) from the openmm-fat.jar file to a temporary directory and configure JNA to find them. OpenMM plugins can be loaded as follows:
-
-      PointerByReference plugins = OpenMM_Platform_loadPluginsFromDirectory(OpenMMUtils.getPluginDirectory());
-
+This will extract the OpenMM binary libraries (for Cuda 10.1) from the torchani-fat.jar file to a temporary directory and configure JNA to find them. 
