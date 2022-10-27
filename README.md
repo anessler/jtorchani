@@ -2,9 +2,11 @@
 Java Wrappers for the Torch ANI C API automatically generated using Jnaerator.
 
 Author: Aaron Nessler, Mitchell Hermon, Logan Martin
+
 Email: aaron-nessler@uiowa.edu
 
 Based on OpenMM C API by: Michael J Schnieders
+
 Email: michael-schnieders@uiowa.edu
 
 ## Introduction	
@@ -58,4 +60,4 @@ To use the Java Torch ANI Wrappers, please first initialize the library using th
 	
       TorchANIUtils.init();
 
-This will extract the OpenMM binary libraries (for Cuda 10.1) from the torchani-fat.jar file to a temporary directory and configure JNA to find them. 
+This will extract the TorchANI binary libraries from the torchani-fat.jar file to a temporary directory and configure JNA to find them. 
