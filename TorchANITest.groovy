@@ -40,8 +40,8 @@ import java.nio.DoubleBuffer
 import com.sun.jna.NativeLong
 import static java.lang.String.format
 import edu.uiowa.torchani.TorchANILibrary
+import edu.uiowa.torchani.TorchANIUtils
 import static edu.uiowa.torchani.TorchANILibrary.ctorch
-
 
 /**
  * The TorchANITest script predicts the energy and gradient of a structure based on the Torch ANI model.
@@ -58,6 +58,11 @@ public class TorchANITest{
      * Execute the script.
      */
     public static void  main(String[] args) {
+
+        TorchANIUtils.init();
+
+        // System.out.println(" ANI Dir: " + TorchANIUtils.getLibDirectory());
+
         int numAtoms = 5;
         double[] coordinates = new double[]{0.03192167, 0.00638559, 0.01301679,
                                     -0.83140486, 0.39370209, -0.26395324,
@@ -65,7 +70,7 @@ public class TorchANITest{
                                     0.45554739, 0.54289633, 0.81170881,
                                     0.66091919, -0.16799635, -0.91037834};
         int[] species = new int[]{6, 1, 1, 1, 1};
-        String pathToTorch = new String("/Users/anessler/Research/Software/ANI2xgradients.pt");
+        String pathToTorch = new String("ANI2xgradients.pt");
         double energy;
         double[] gradient = new double[numAtoms * 3];
         System.out.println(" Structure has been loaded. \n Start Torch ANI.")

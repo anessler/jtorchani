@@ -24,7 +24,7 @@ public class TorchANIUtils {
       init = true;
 
       try {
-        JarFile jarFile = jarForClass(TorchANILibrary.class, (JarFile) null);
+        JarFile jarFile = jarForClass(edu.uiowa.torchani.TorchANILibrary.class, null);
         String os;
         if (Platform.isMac()) {
           os = "darwin";
@@ -34,7 +34,7 @@ public class TorchANIUtils {
           os = "win_x64";
         }
 
-        String directory = "ani/lib" + os;
+        String directory = "ani/lib/" + os;
         Path path = Files.createTempDirectory("torchani");
         File toDir = path.toFile();
         String var10000 = toDir.getAbsolutePath();
@@ -91,7 +91,6 @@ public class TorchANIUtils {
           if (!entries.hasMoreElements()) {
             return;
           }
-
           entry = (JarEntry) entries.nextElement();
         } while (!entry.getName().startsWith(jarDir + "/"));
       } while (entry.isDirectory());
