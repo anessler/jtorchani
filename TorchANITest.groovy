@@ -38,10 +38,11 @@
 
 import java.nio.DoubleBuffer
 import com.sun.jna.NativeLong
+import com.sun.jna.NativeLibrary
 import static java.lang.String.format
 import edu.uiowa.torchani.TorchANILibrary
 import edu.uiowa.torchani.TorchANIUtils
-import static edu.uiowa.torchani.TorchANILibrary.ctorch
+import static edu.uiowa.torchani.TorchANILibrary.ANIEnergyAndGradient
 
 /**
  * The TorchANITest script predicts the energy and gradient of a structure based on the Torch ANI model.
@@ -59,9 +60,13 @@ public class TorchANITest{
      */
     public static void  main(String[] args) {
 
+        String libTorchHome = System.getenv("LIBTORCH_HOME")
+        System.out.println("Lib Torch Home: " + libTorchHome);
+        NativeLibrary.addSearchPath("libc10", libTorchHome + "/lib");
+
         TorchANIUtils.init();
 
-        // System.out.println(" ANI Dir: " + TorchANIUtils.getLibDirectory());
+        System.out.println(" ANI Dir: " + TorchANIUtils.getLibDirectory());
 
         int numAtoms = 5;
         double[] coordinates = new double[]{0.03192167, 0.00638559, 0.01301679,
@@ -75,13 +80,18 @@ public class TorchANITest{
         double[] gradient = new double[numAtoms * 3];
         System.out.println(" Structure has been loaded. \n Start Torch ANI.")
         NativeLong numA = new NativeLong(numAtoms);
-        energy = ctorch(pathToTorch, numA, species, coordinates, gradient)
-        System.out.println(format(" ANI Energy: %9.4f", energy));
-        System.out.println(format(" ANI Gradient:"));
-        for(int i = 0; i < numAtoms; i++){
-            for(int j = 0; j < 3; j++){
-                System.out.println(format(" %9.4f ", gradient[i * 3 + j]))
-            }
+        try{
+           energy = ANIEnergyAndGradient(pathToTorch, numA, species, coordinates, gradient)
+           System.out.println(format(" ANI Energy: %9.4f", energy));
+           System.out.println(format(" ANI Gradient:"));
+           for(int i = 0; i < numAtoms; i++){
+               for(int j = 0; j < 3; j++){
+                   System.out.println(format(" %9.4f ", gradient[i * 3 + j]))
+               }
+           }
+        }catch (Exception e){
+           System.out.println(" Error running Energy.")
+           System.out.println(e.printStackTrace())
         }
     }
 }
