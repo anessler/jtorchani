@@ -24,8 +24,8 @@ public class TorchANILibrary implements Library {
   }
   /**
    * Original signature : <code>
-   * double ctorch(const char*, long, const int[], const double[], double[])</code>
+   * double ANIEnergyAndGradient(const char*, long, const int[], const double[], double[])</code>
    */
-  public static native double ctorch(
+  public static native double ANIEnergyAndGradient(
       String pathToTorch, NativeLong n, int species[], double coordinates[], double gradient[]);
 }

@@ -10,7 +10,7 @@
 extern "C" {
 #endif
 
-extern TORCHANI_EXPORT double ctorch(const char* pathToTorch, long n, const int species[], const double coordinates[], double gradient[]);
+extern TORCHANI_EXPORT double ANIEnergyAndGradient(const char* pathToTorch, long n, const int species[], const double coordinates[], double gradient[]);
 
 
 #if defined(__cplusplus)

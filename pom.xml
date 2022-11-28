@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.uiowa.jtorchani</groupId>
   <artifactId>jtorchani-fat</artifactId>
-  <version>7.5.0-v4</version>
+  <version>1.0.0-beta</version>
   <packaging>jar</packaging>
   <name>Java Wrappers for Torch ANI</name>
   <description>Java wrappers for the Torch ANI API.</description>
